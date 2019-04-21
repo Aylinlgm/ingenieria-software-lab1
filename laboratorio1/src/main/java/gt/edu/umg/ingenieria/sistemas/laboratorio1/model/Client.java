@@ -1,31 +1,48 @@
 package gt.edu.umg.ingenieria.sistemas.laboratorio1.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- *
- * @author Josué Barillas (jbarillas)
- */
+
 @Entity
 public class Client implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    
+    @Column(name = "first_name")
     private String firstName;
+    
+    @Column(name = "last_name")
     private String lastName;
+    
+     @Column(name = "age")
+    private int age;
+    
+    @Column(name = "nit")
     private String nit;
+    
+    @Column(name = "phone")
     private String phone;
+    
+    @Column(name = "address")
     private String address;
 
     public Client() {
     }
 
-    public Client(Long id, String firstName, String lastName, String nit, String phone, String address) {
+    public Client(Long id, String firstName, String lastName, int age,String nit, String phone, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
         this.nit = nit;
         this.phone = phone;
         this.address = address;
@@ -78,6 +95,15 @@ public class Client implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
     
     
     
